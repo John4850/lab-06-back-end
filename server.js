@@ -1,3 +1,4 @@
+import darksky from './data/darksky.json';
 //Environment variables from .env
 require('dotenv').config();
 
@@ -43,6 +44,39 @@ function toLocation(/* geodata */) {
         latitude: geometry.location.lat,
         longitude: geometry.location.lng
     };
+}
+
+app.get('/weather', (request, response) => {
+    try {
+        const weather = request.query.weather;
+        const result = getWeather(weather);
+        response.status(200).json(result);
+
+    }
+    catch(err) {
+        response.status(500).send('Sorry, the elves are on break and could not process your request');
+    }
+});
+
+const darkskyData = require('./data/darksky.json');
+
+function getWeather(/*weather goes heres*/) {
+
+    return toWeather(darkskyData);
+}
+
+function toWeather(/*darkskyData*/) {
+    let answer = [];
+    const data = darkskyData.daily.data;
+    data.forEach(day => {
+        let stats = {
+            forcast: day.summary,
+            time: day.time
+        };
+        answer.push(stats);
+    });
+    return answer;
+    //daily/data/time&summary
 }
 
 // Pull Da Lever!
