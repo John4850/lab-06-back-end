@@ -69,7 +69,7 @@ function toWeather(/*darkskyData*/) {
     const data = darkskyData.daily.data;
     data.forEach(day => {
         let stats = {
-            forcast: day.summary,
+            forcast: `${day.summary}`,
             time: day.time
         };
         answer.push(stats);
