@@ -1,4 +1,3 @@
-import darksky from './data/darksky.json';
 //Environment variables from .env
 require('dotenv').config();
 
