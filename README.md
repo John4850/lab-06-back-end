@@ -1,7 +1,7 @@
 # Project Name
 
 
-**Author**: John Nelson, Luke Donahue
+**Author**: John Nelson
 
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
