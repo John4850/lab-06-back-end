@@ -44,7 +44,6 @@ function toLocation(/* geodata */) {
         longitude: geometry.location.lng
     };
 }
-
 app.get('/weather', (request, response) => {
     try {
         const weather = request.query.weather;
@@ -55,6 +54,7 @@ app.get('/weather', (request, response) => {
     catch(err) {
         response.status(500).send('Sorry, the elves are on break and could not process your request');
     }
+
 });
 
 const darkskyData = require('./data/darksky.json');
